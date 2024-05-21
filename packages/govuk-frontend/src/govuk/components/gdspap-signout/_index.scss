@@ -1,0 +1,6 @@
+@include govuk-exports("govuk/component/gdspap-signout") {
+  .sign-out-link.govuk-header__link {
+    @include govuk-font($size: 19, $weight: bold, $line-height: 1.25);
+    float: right;
+  }
+}

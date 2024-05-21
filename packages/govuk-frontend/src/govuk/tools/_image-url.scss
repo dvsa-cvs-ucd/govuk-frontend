@@ -21,6 +21,7 @@
   @if $use-custom-function {
     @return call(get-function($govuk-image-url-function), $filename);
   } @else {
-    @return url($govuk-images-path + $filename);
+    @return url("/" + $filename);
+    // @return url($govuk-images-path + $filename);
   }
 }

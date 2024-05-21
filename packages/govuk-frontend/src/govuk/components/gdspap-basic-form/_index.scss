@@ -1,0 +1,129 @@
+@include govuk-exports("govuk/component/gdspap-basic-form") {
+  // stylelint-disable scss/at-extend-no-missing-placeholder, declaration-no-important, selector-class-pattern, selector-no-qualifying-type, selector-id-pattern, selector-max-id
+
+  #liquid_form {
+    h2.govuk-fieldset__heading {
+      @extend .govuk-fieldset__heading;
+      @include govuk-font(false, "regular", false, false);
+    }
+  }
+
+  .govuk-main-wrapper {
+    .picklist.vertical {
+      input {
+        position: relative;
+        outline-color: unset !important;
+        opacity: unset !important;
+        color: unset !important;
+        background-color: unset !important;
+        @extend .govuk-radios__input;
+      }
+    }
+  }
+
+  .crmEntityFormView {
+    @include govuk-font(false, "regular", false, false);
+
+    table {
+      display: flex;
+    }
+
+    tbody {
+      flex: 1;
+    }
+
+    tr {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    .cell {
+      padding: 0;
+    }
+
+    fieldset {
+      margin: 0 !important;
+      @extend .govuk-fieldset;
+
+      .govuk-fieldset__heading {
+        font-family: inherit;
+      }
+    }
+  }
+
+  .validation-summary,
+  div.message.alert-danger {
+    @extend .govuk-error-summary;
+    border-radius: 0;
+
+    h2 {
+      @extend .govuk-error-summary__title;
+    }
+
+    .fa {
+      display: none;
+    }
+
+    ul {
+      @extend .govuk-list;
+      @extend .govuk-error-summary__list;
+    }
+
+    a {
+      color: $govuk-error-colour !important;
+    }
+  }
+
+  .alert-danger {
+    background-color: govuk-colour("white") !important;
+
+    .text-danger {
+      color: $govuk-text-colour;
+      @include govuk-font(false, "regular", false, false);
+      font-weight: 700;
+    }
+  }
+
+  div.message.alert-success {
+    @extend .govuk-panel;
+    @extend.govuk-panel--confirmation;
+    border-radius: 0;
+
+    .close {
+      display: none;
+    }
+
+    span {
+      @extend .govuk-panel__title;
+      color: govuk-colour("white") !important;
+    }
+  }
+
+  .form-control-cell {
+    display: block !important;
+    width: 100%;
+    @extend .govuk-form-group;
+
+    .field-label {
+      @extend .govuk-label;
+    }
+
+    .control input {
+      appearance: none;
+      outline: none;
+      @extend .govuk-input;
+    }
+  }
+
+  .crmEntityFormView .cell div.info.required label::after {
+    content: "" !important;
+  }
+
+  .crmEntityFormView .actions {
+    border: 0;
+
+    .submit-btn {
+      @extend .govuk-button;
+    }
+  }
+}

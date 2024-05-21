@@ -21,6 +21,7 @@
   @if $use-custom-function {
     @return call(get-function($govuk-font-url-function), $filename);
   } @else {
-    @return url($govuk-fonts-path + $filename);
+    @return url("/" + $filename);
+    // @return url($govuk-fonts-path + $filename);
   }
 }

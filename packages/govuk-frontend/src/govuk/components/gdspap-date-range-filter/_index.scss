@@ -1,0 +1,28 @@
+@include govuk-exports("govuk/component/gdspap-date-range-filter") {
+  // stylelint-disable max-nesting-depth, scss/at-extend-no-missing-placeholder, declaration-no-important
+
+  .date-range {
+    display: flex;
+    width: 100%;
+    flex-flow: row wrap;
+
+    fieldset {
+      @include govuk-media-query($until: tablet) {
+        min-width: 100%;
+      }
+      min-width: 33%;
+
+      .govuk-error-message {
+        display: none !important;
+      }
+    }
+  }
+
+  .govuk-fieldset__legend {
+    border-bottom: 0;
+  }
+
+  .date-range-error-summary {
+    display: none;
+  }
+}

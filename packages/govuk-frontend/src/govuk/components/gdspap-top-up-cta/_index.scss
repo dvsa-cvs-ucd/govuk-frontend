@@ -1,0 +1,28 @@
+@include govuk-exports("govuk/component/gdspap-top-up-cta") {
+  .top-up-cta {
+    display: flex;
+    min-width: 16rem;
+    max-width: 33%;
+    min-height: 8.5rem;
+    margin: 0 $govuk-gutter-half;
+    margin-bottom: govuk-spacing(4);
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    @include govuk-media-query($until: desktop) {
+      width: calc(100% - #{$govuk-gutter});
+      max-width: calc(100% - #{$govuk-gutter});
+      margin: govuk-spacing(3) $govuk-gutter-half;
+      justify-content: flex-start;
+      gap: govuk-spacing(2);
+    }
+
+    & > * {
+      margin: 0;
+    }
+
+    .govuk-button {
+      margin-bottom: $govuk-border-width-form-element;
+    }
+  }
+}

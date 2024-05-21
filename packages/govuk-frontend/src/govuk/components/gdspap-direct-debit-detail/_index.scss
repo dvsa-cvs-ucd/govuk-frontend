@@ -1,0 +1,33 @@
+@include govuk-exports("govuk/component/gdspap-direct-debit-detail") {
+  // stylelint-disable selector-max-id
+  #direct-debit-description {
+    margin-bottom: 0;
+    padding-top: govuk-spacing(8);
+    padding-bottom: govuk-spacing(8);
+    border-top: 1px solid $govuk-border-colour;
+  }
+
+  .direct-debit-list {
+    li {
+      margin-bottom: govuk-spacing(6);
+    }
+  }
+
+  .direct-debit-detail {
+    margin: 0;
+
+    .govuk-heading-l {
+      margin-bottom: govuk-spacing(4);
+    }
+
+    dt,
+    dd {
+      margin: 0;
+      margin-inline-start: 0;
+    }
+
+    .govuk-summary-list__value {
+      text-align: right;
+    }
+  }
+}

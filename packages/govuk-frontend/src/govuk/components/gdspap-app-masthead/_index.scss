@@ -1,0 +1,45 @@
+@include govuk-exports("govuk/component/gdspap-app-masthead") {
+  .app-masthead {
+    box-sizing: border-box;
+    color: govuk-colour("white");
+    background: $govuk-brand-colour;
+  }
+
+  .app-masthead h1 {
+    margin-bottom: govuk-spacing(3);
+  }
+
+  .app-masthead h1,
+  .app-masthead .govuk-breadcrumbs__link,
+  .app-masthead .govuk-breadcrumbs__list-item,
+  .app-masthead .atf-details,
+  .app-masthead .atf-details a,
+  .app-masthead .govuk-body {
+    max-width: 70ch;
+    color: govuk-colour("white");
+
+    &:focus {
+      @include govuk-focused-text;
+    }
+  }
+
+  .app-masthead .govuk-breadcrumbs {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: govuk-spacing(2);
+  }
+
+  .app-masthead .govuk-breadcrumbs__list-item::before {
+    border-color: govuk-colour("white");
+  }
+
+  .atf-details {
+    margin-bottom: govuk-spacing(3);
+  }
+
+  .masthead-heading {
+    display: inline-block;
+    margin-top: govuk-spacing(9);
+    margin-bottom: govuk-spacing(8);
+  }
+}

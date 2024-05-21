@@ -1,0 +1,45 @@
+@include govuk-exports("govuk/component/gdspap-vrm") {
+  @font-face {
+    font-family: DVLA-VRM-Regular;
+    src: url("DVLA-VRM-0d9e91a4f177479f1ca07a205fa783ba.woff");
+  }
+
+  .reg-mark {
+    width: 210px;
+    max-width: 210px;
+    padding: 0.4em;
+    font:
+      40px DVLA-VRM-Regular,
+      Verdana,
+      sans-serif;
+  }
+
+  .reg-mark,
+  .reg-mark-sm,
+  .reg-mark-xs {
+    border-radius: 0.25em;
+    background-color: #ffd307;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .reg-mark-sm {
+    width: 150px;
+    max-width: 150px;
+    padding: 0.4em 0.2em;
+    font:
+      30px DVLA-VRM-Regular,
+      Verdana,
+      sans-serif;
+  }
+
+  .reg-mark-xs {
+    width: 112px;
+    max-width: 112px;
+    padding: 0.5em 0.25em;
+    font:
+      19px DVLA-VRM-Regular,
+      Verdana,
+      sans-serif;
+  }
+}

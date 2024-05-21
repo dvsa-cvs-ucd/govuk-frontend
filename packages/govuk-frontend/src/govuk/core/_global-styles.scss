@@ -1,18 +1,129 @@
+// stylelint-disable declaration-no-important
 @import "links";
 @import "typography";
 
 @mixin govuk-global-styles {
-  a {
-    @extend %govuk-link;
+  html {
+    // Bootstrap.css.min sets <html> font size to 10px
+    // Override here to inherit GDS root font size
+    font-size: $govuk-root-font-size;
+
+    // stylelint-disable-next-line scss/at-extend-no-missing-placeholder
+    @extend .govuk-template;
   }
 
-  p {
-    @extend %govuk-body-m;
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    // Reset default margin
+    margin: 0;
+
+    // Bootstrap.css.min sets <body> color to #666
+    // Override here to ensure input fields and other elements have black text
+    color: govuk-colour("black");
+
+    // Bootstrap.css.min sets <body> font size to 14px
+    // Override here to inherit GDS root font size
+    font-size: $govuk-root-font-size;
+
+    // stylelint-disable-next-line scss/at-extend-no-missing-placeholder
+    @extend .govuk-template__body;
+
+    // Override Bootstrap.css.min default link colours
+    // and override :visited state so all links have default color values
+    a,
+    .govuk-link {
+      text-decoration: underline;
+
+      &:link {
+        color: $govuk-link-colour;
+      }
+
+      &:visited {
+        color: $govuk-link-colour;
+      }
+
+      &:hover {
+        color: govuk-colour("dark-blue", $legacy: "light-blue");
+      }
+
+      &:focus {
+        color: $govuk-focus-text-colour;
+      }
+    }
+
+    // stylelint-disable-next-line selector-no-qualifying-type
+    a.govuk-button {
+      text-decoration: none;
+    }
+  }
+
+  // Boostrap overrides text input text colour
+  // Override to use the GDS default
+  // Move to entity-form
+  body .form-control {
+    color: govuk-colour("black");
+  }
+
+  // Ensure warning text icon has a min-width set
+  .govuk-warning-text__icon {
+    min-width: 34px;
+  }
+
+  // Override bootstrap line height for td/th
+  .table > tbody > tr > td,
+  .table > tbody > tr > th,
+  .table > tfoot > tr > td,
+  .table > tfoot > tr > th,
+  .table > thead > tr > td,
+  .table > thead > tr > th {
+    line-height: initial;
+  }
+
+  // Utility class to make the 'govuk-grid-column-*' positioned relative
+  // to allow absolute positioning inside
+  .govuk-grid-column-relative {
+    position: relative;
+  }
+
+  // Boostrap applies a left and right margin to h1 elements so we reset here
+  h1 {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .govuk-link .govuk-link-danger {
+    color: govuk-colour("red");
+  }
+
+  .govuk-panel__title {
+    color: govuk-colour("white") !important;
+  }
+
+  tr > .actions-header {
+    text-align: right;
+  }
+
+  div .readable-actions {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    gap: 1ch;
+
+    a {
+      display: inline-block;
+    }
+  }
+
+  .personal-details {
+    dt {
+      width: 40%;
+    }
   }
 }
 
 @include govuk-exports("govuk/core/global-styles") {
-  @if $govuk-global-styles == true {
-    @include govuk-global-styles;
-  }
+  @include govuk-global-styles;
 }
