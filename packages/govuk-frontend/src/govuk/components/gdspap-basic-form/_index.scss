@@ -1,6 +1,12 @@
 @include govuk-exports("govuk/component/gdspap-basic-form") {
   // stylelint-disable scss/at-extend-no-missing-placeholder, declaration-no-important, selector-class-pattern, selector-no-qualifying-type, selector-id-pattern, selector-max-id
 
+  .govuk-fieldset {
+    .govuk-fieldset__heading {
+      @include govuk-font(36, "bold", false, false);
+    }
+  }
+
   #liquid_form {
     h2.govuk-fieldset__heading {
       @extend .govuk-fieldset__heading;
