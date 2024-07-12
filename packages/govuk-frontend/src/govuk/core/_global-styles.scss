@@ -16,6 +16,17 @@
     box-sizing: border-box;
   }
 
+  .govuk-main-wrapper {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: $govuk-font-family;
+    }
+  }
+
   body {
     // Reset default margin
     margin: 0;
