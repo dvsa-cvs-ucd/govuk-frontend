@@ -24,6 +24,7 @@
     h5,
     h6 {
       font-family: $govuk-font-family;
+      font-weight: 700;
     }
   }
 
@@ -132,6 +133,26 @@
     dt {
       width: 40%;
     }
+  }
+
+  .dvsa-vrm {
+    display: inline-block;
+    min-width: 9.375rem;
+    padding: govuk-spacing(1) 0.2rem;
+    border-radius: 0.25rem;
+    background-color: #ffdd00;
+    font:
+      1.8rem DVLA-VRM-Regular,
+      Verdana,
+      sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .dvsa-panel__highlight {
+    margin-bottom: govuk-spacing(3);
+    padding: govuk-spacing(3);
+    background-color: govuk-colour("light-grey");
   }
 }
 
