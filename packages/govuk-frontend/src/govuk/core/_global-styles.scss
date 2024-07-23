@@ -9,10 +9,82 @@
   p {
     @extend %govuk-body-m;
   }
+    html {
+      background: govuk-colour("light-grey", $legacy: "grey-3");
+      font-size: $govuk-root-font-size;
+      @extend .govuk-body;
+    }
+  
+    body {
+      margin: 0;
+      background: govuk-colour("white");
+      text-align: left;
+    }
+  
+    label {
+      @extend .govuk-label;
+    }
+    
+    button,
+    .buttons button {
+      @extend .govuk-button;
+    }
+
+    #cancel,
+    #email_ver_but_resend,
+    #email_ver_but_edit {
+      @extend .govuk-button;
+      @extend .govuk-button--secondary;
+    }
+    
+    .buttons {
+      button {
+        margin-right: govuk-spacing(4) !important;
+      }
+
+      button[disabled] {
+        display: none;
+      }
+    }
+    .phoneNumber {
+      display: none;
+    }
+    #verificationCode {
+      @extend .govuk-input--width-5;
+      margin-bottom: govuk-spacing(4);
+    }
+    #retryCode {
+      margin-bottom: govuk-spacing(4);
+    }
+    #maskedNumber {
+      display: none;
+    }
+
+    #countryCode {
+      @extend .govuk-select;
+    }
+
+    .code,
+    .number {
+      @extend .govuk-form-group;
+    }
+    
+    input {
+      @extend .govuk-input;
+    }
+  
+    // Remove Chrome browser autocomplete blue background on filled fields
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+      box-shadow: 0 0 0 1000px #ffffff inset !important; // sass-lint:disable-line no-color-literals zero-unit
+    }
 }
 
 @include govuk-exports("govuk/core/global-styles") {
-  @if $govuk-global-styles == true {
-    @include govuk-global-styles;
-  }
+  @include govuk-global-styles;
 }

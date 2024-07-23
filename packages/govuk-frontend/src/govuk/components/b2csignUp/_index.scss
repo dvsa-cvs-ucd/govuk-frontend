@@ -1,0 +1,145 @@
+@include govuk-exports("govuk/component/b2csignUp") {
+// sass-lint:disable-block placeholder-in-extend no-ids id-name-format class-name-format no-qualifying-elements no-duplicate-properties
+  $signup: "SelfAsserted";
+
+  [data-name="#{$signup}"] {
+
+    .intro {
+
+      h1 {
+        @extend .govuk-heading-xl;
+      }
+
+      // Sign up intro text starts life as a P, but we use JS to replace it with a H1
+      // These styles ensure consistent look while JS does its job
+      p {
+        @extend .govuk-heading-xl;
+      }
+    }
+
+    .attrEntry > div {
+      width: 100%;
+      @include govuk-media-query($from: tablet) {
+        width: 75%;
+      }
+    }
+
+    .verificationInfoText {
+      @extend .govuk-body;
+    }
+
+    .verificationSuccessText {
+      @extend .govuk-body;
+      @extend .govuk-\!-font-weight-bold;
+
+      &[aria-hidden="false"] {
+        display: block !important;
+      }
+    }
+
+    .verificationErrorText {
+      @extend .govuk-error-message;
+
+      &[aria-hidden="false"] {
+        display: block !important;
+      }
+    }
+
+    li.EmailBox {
+
+      .govuk-form-group--error {
+        padding-bottom: 2px;
+      }
+    }
+
+    li.Password {
+      margin-top: govuk-spacing(6);
+    }
+
+    #attributeList {
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        li {
+          @extend .govuk-form-group;
+        }
+      }
+    }
+
+    #email_ver_but_send {
+      margin-top: govuk-spacing(6);
+      margin-bottom: govuk-spacing(5);
+    }
+
+    .helpLink {
+      display: none;
+    }
+
+    #email {
+      @include govuk-media-query($until: tablet) {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    #email_ver_input {
+      @extend .govuk-input--width-10;
+
+      @include govuk-media-query($until: tablet) {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    #newPassword,
+    #reenterPassword {
+      margin-bottom: govuk-spacing(5);
+      @extend .govuk-input--width-20;
+
+      @include govuk-media-query($until: tablet) {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    #continue,
+    #email_ver_but_verify {
+      margin-right: govuk-spacing(6);
+    }
+
+    .buttons.verify {
+
+      label {
+        &[aria-hidden="false"] {
+          display: block !important;
+        }
+      }
+
+      #email_ver_input_label[aria-hidden="false"] {
+        margin-top: govuk-spacing(6);
+      }
+
+      #email_ver_input[aria-hidden="false"] {
+        display: block !important;
+        margin-bottom: govuk-spacing(6);
+      }
+
+    }
+
+    #cancel,
+    #email_ver_but_resend,
+    #email_ver_but_edit {
+      @extend .govuk-button;
+      @extend .govuk-button--secondary;
+    }
+
+    #email_ver_but_edit {
+      margin-top: govuk-spacing(6);
+      margin-bottom: 0;
+    }
+
+  }
+}

@@ -1,0 +1,51 @@
+@include govuk-exports("govuk/component/b2csignIn") {
+  // sass-lint:disable-block placeholder-in-extend class-name-format variable-name-format no-ids
+  // sass-lint:disable-block placeholder-in-extend no-ids id-name-format
+  $signin: "Unified";
+
+  [data-name="#{$signin}"] {
+
+    .intro {
+
+      h1 {
+        @extend .govuk-heading-xl;
+      }
+
+      // Sign in intro text starts life as a H2, but we use JS to replace it with a H1
+      // These styles ensure consistent look while JS does its job
+      h2 {
+        @extend .govuk-heading-xl;
+      }
+    }
+
+    .entry-item {
+      @extend .govuk-form-group;
+    }
+
+    #logonIdentifier {
+
+      @include govuk-media-query($until: tablet) {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    #forgotPassword {
+      display: none;
+    }
+
+    #password {
+
+      @include govuk-media-query($until: tablet) {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .divider,
+    .create {
+      display: none;
+    }
+
+  }
+}

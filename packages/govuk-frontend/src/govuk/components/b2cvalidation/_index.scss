@@ -1,0 +1,76 @@
+// sass-lint:disable-block placeholder-in-extend no-ids id-name-format class-name-format no-qualifying-elements
+@include govuk-exports("govuk/component/b2cvalidation") {
+    $signup: "SelfAsserted";
+
+    .highlightError,
+    input.invalid {
+      @extend .govuk-input--error;
+    }
+  
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    .attrEntry input[type="text"],
+    .attrEntry input[type="email"],
+    .attrEntry input[type="password"] {
+      @extend .govuk-input;
+    }
+  
+    .message.alert {
+      @extend .govuk-error-summary;
+      background: transparent;
+    }
+  
+    .error {
+  
+      &.pageLevel {
+        @extend .govuk-error-summary;
+  
+        p {
+          @extend .govuk-error-message;
+          margin: 0;
+        }
+      }
+  
+      &.itemLevel {
+  
+        &[aria-hidden="true"] {
+          display: none;
+        }
+  
+        &:empty {
+          display: none;
+        }
+  
+        p {
+          @extend .govuk-error-message;
+          margin-top: 0;
+          margin-right: 0;
+          margin-left: 0;
+        }
+      }
+    }
+  
+    [data-name="#{$signup}"] {
+      .error {
+  
+        &.pageLevel {
+          @extend .govuk-error-summary;
+          @extend .govuk-body;
+          @extend .govuk-\!-font-weight-bold;
+          color: govuk-colour("red");
+  
+          h2 {
+            color: govuk-colour("black");
+          }
+        }
+  
+        &.itemLevel {
+          @extend .govuk-error-message;
+          margin-top: 0;
+          margin-right: 0;
+          margin-left: 0;
+        }
+      }
+    }
+}

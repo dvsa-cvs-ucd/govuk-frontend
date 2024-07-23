@@ -1,0 +1,6 @@
+@include govuk-exports("govuk/component/b2cskipLink") {
+  .govuk-skip-link:focus {
+    outline-offset: 0;
+    text-decoration: underline;
+  }
+}

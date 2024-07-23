@@ -1,0 +1,18 @@
+@include govuk-exports("govuk/component/b2cskipLink") {// sass-lint:disable-block placeholder-in-extend class-name-format variable-name-format no-ids
+  $passwordreset: "SelfAsserted";
+
+  #password-reset [data-name="#{$passwordreset}"] {
+    .intro {
+      h1 {
+        @extend .govuk-heading-xl;
+      }
+
+      // Sign in intro text starts life as a H2, but we use JS to replace it with a H1
+      // These styles ensure consistent look while JS does its job
+      h2 {
+        @extend .govuk-heading-xl;
+      }
+    }
+
+  }
+}
