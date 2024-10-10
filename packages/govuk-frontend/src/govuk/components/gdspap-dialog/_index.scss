@@ -1,0 +1,49 @@
+@include govuk-exports("govuk/component/gdspap-dialog") {
+  .dialog-is-open {
+    overflow: hidden;
+  }
+
+  .govuk-dialog {
+    display: none;
+    position: absolute;
+    top: govuk-spacing(9);
+    right: 0;
+    left: 0;
+    width: 50rem;
+    max-width: 90%;
+    margin: auto;
+    padding: govuk-spacing(8) govuk-spacing(8) govuk-spacing(7);
+    border: $govuk-border-width solid $govuk-input-border-colour;
+    background: $govuk-body-background-colour;
+  }
+
+  .govuk-dialog.fixed-one-quarter {
+    position: fixed;
+    -webkit-transform: translateY(-25%);
+    -ms-transform: translateY(-25%);
+    transform: translateY(-25%);
+  }
+
+  .govuk-dialog:focus {
+    outline: $govuk-focus-width solid $govuk-focus-colour;
+  }
+
+  .govuk-dialog[open] {
+    box-sizing: border-box;
+    display: block;
+  }
+
+  .govuk-dialog + .backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .govuk-dialog[open] + .backdrop,
+  .govuk-dialog[open]::-webkit-backdrop,
+  .govuk-dialog[open]::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}

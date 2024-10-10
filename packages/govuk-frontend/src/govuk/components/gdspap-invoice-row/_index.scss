@@ -1,0 +1,16 @@
+@include govuk-exports("govuk/component/gdspap-invoice-row") {
+  // stylelint-disable scss/at-extend-no-missing-placeholder
+
+  .invoice-row {
+    dt,
+    dd {
+      display: inline;
+      margin: 0;
+      padding: 0;
+    }
+
+    dt {
+      font-weight: 400;
+    }
+  }
+}

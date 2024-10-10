@@ -1,0 +1,80 @@
+@include govuk-exports("govuk/component/gdspap-nav-card") {
+  // stylelint-disable scss/at-extend-no-missing-placeholder
+
+  $chevron-size: 7px;
+
+  // Size of chevron border
+  $chevron-border-width: 1px;
+
+  // Colour of chevron
+  $chevron-border-colour: $govuk-secondary-text-colour;
+
+  // Calculated altitude (△↕) of the right-angled isosceles chevron with sides
+  // of length 8 (7px + 1px border):
+  //
+  // √(8² + 8²) * 0.5 ≅ 5.655
+  $chevron-altitude-calculated: 5.655px;
+
+  .nav-card-list {
+    display: flex;
+    flex-flow: row wrap;
+    @extend .govuk-grid-row;
+  }
+
+  .nav-card {
+    width: 33%;
+    @include govuk-media-query($until: tablet) {
+      width: 100%;
+    }
+    margin-bottom: govuk-spacing(6);
+    padding: 0 $govuk-gutter-half;
+  }
+
+  .nav-card dt {
+    position: relative;
+    margin-bottom: govuk-spacing(2);
+    padding-top: govuk-spacing(2);
+    border-top: 2px solid $govuk-secondary-text-colour;
+
+    @include govuk-font($size: 24, $weight: bold);
+
+    &::before {
+      @extend .govuk-breadcrumbs__list-item, :before;
+    }
+
+    &:first-child::before {
+      content: "";
+      display: block;
+      @include govuk-media-query($until: tablet) {
+        top: govuk-spacing(3);
+      }
+      top: govuk-spacing(4);
+      right: ((($chevron-altitude-calculated * -2) + $chevron-size + $chevron-border-width) + $govuk-gutter-half);
+      left: unset;
+      margin: 0;
+    }
+  }
+
+  .nav-card dd {
+    @include govuk-font($size: 16);
+  }
+
+  .nav-card a {
+    display: inline-block;
+    max-width: 95%;
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &:focus {
+      @include govuk-focused-text;
+    }
+  }
+}
