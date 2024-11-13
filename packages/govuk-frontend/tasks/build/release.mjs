@@ -4,6 +4,8 @@ import { pkg, version } from '@govuk-frontend/config'
 import { files, npm, scripts, styles, task } from '@govuk-frontend/tasks'
 import gulp from 'gulp'
 
+import { copyCustomScripts } from '../copyCustomScripts.mjs'
+
 /**
  * Build dist task
  * Prepare dist folder for release
@@ -58,7 +60,7 @@ export default (options) =>
         }
       })
     ),
-
+    copyCustomScripts(options), // Use the imported copyCustomScripts task
     // Update GOV.UK Frontend version
     task.name("file:version 'VERSION.txt'", () =>
       files.version('VERSION.txt', options)
